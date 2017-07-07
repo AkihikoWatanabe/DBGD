@@ -1,7 +1,7 @@
 # DBGD
 A python implementation of Dueling Bandit Gradient Descent (DBGD).
 
-DBGD is list-wise online learning approach based on dueling bandits problem using user's implicit feedback.
+DBGD is a list-wise online learning approach based on dueling bandits problem using user's implicit feedback.
 
 Note that, this method is commonly used in online setting, but this implementation is for offline setting.
 
