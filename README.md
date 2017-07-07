@@ -66,7 +66,7 @@ x_test, y_test = make_data()
 # load trained weight parameters from model file
 # second argument means number of epochs for weight that you want to load
 weight = Weight()
-weight.load_weight("./moidels/pa", 30)
+weight.load_weight("./models/pa", 30)
 
 predictor = Predictor()
 
