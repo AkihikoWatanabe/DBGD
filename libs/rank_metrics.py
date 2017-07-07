@@ -1,4 +1,6 @@
-"""Information Retrieval metrics
+""" This implementation is borrowed from https://gist.github.com/bwhite/3726239
+
+Information Retrieval metrics
 
 Useful Resources:
 http://www.cs.utexas.edu/~mooney/ir-course/slides/Evaluation.ppt
