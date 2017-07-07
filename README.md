@@ -56,7 +56,7 @@ for _ in xrange(epochs):
 ```
 
 ## Testing
-```pythohn
+```python
 from weight import Weight
 import predictor import Predictor
 
