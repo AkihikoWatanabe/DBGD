@@ -74,5 +74,5 @@ predictor = Predictor()
 for qid, features in x_test.items():
 	labels = y_test[qid]
 	# ranking is represented as list and its element is composed of (true_label, case_id, score) by descending order of score
-	ranking = predictor.predict_and_ranks(features, labels, weight)
+	ranking = predictor.predict_and_ranks(features, labels, weight.get_weight())
 ```

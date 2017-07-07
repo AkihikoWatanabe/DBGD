@@ -15,7 +15,7 @@ class Updater():
     Note that, original paper doesn't use IPM, but I believe that IPM is also useful for DBGD training like other online learning technique.
     """
 
-    def __init__(self, delta=1.0, ganma=0.01, process_num=1, metric="MAP")
+    def __init__(self, delta=1.0, ganma=0.01, process_num=1, metric="MAP"):
         """
         Params:
             delta(float): exploration parameter
@@ -80,5 +80,5 @@ class Updater():
         x_batch, y_batch = self.__make_minibatch(x_dict, y_dict)
 
         callback = Parallel(n_jobs=self.PROCESS_NUM)( \
-                delayed(dueling_bandits)(x_batch[i], y_batch[i], weight.get_weight(), weight., self.delta, self.ganma, self.METRIC) for i in range(self.PROCESS_NUM)) 
+                delayed(dueling_bandits)(x_batch[i], y_batch[i], weight.get_weight(), weight.dims, self.delta, self.ganma, self.METRIC) for i in range(self.PROCESS_NUM)) 
         self.__iterative_parameter_mixture(callback, weight)

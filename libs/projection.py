@@ -16,6 +16,6 @@ def projection_by_random(w, dims, step_size, u=None):
     """
     if u == None:
         u = np.random.uniform(size=(1, dims)) # direction for update
-        u = sp.csr_matrix(u / np.linalg.norm(direction), dtype=np.float32) # normalize so as to unit vector
+        u = sp.csr_matrix(u / np.linalg.norm(u), dtype=np.float32) # normalize so as to unit vector
    
-    return w + step_size * u
+    return w + step_size * u, u
