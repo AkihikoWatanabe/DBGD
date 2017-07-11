@@ -10,6 +10,13 @@ For details about DBGD, see the following papers:
 Interactively optimizing information retrieval systems as a dueling bandits problem, Yue+, ICML'09.
 ```
 
+# Requirements
+* python 2.7
+* tqdm
+* numpy
+* scipy
+* joblib
+
 # Example
 ## Training
 ```python
