@@ -3,6 +3,7 @@
 from projection import projection_by_random
 from predictor import Predictor
 from rank_metrics import mean_reciprocal_rank, mean_average_precision
+from tqdm import tqdm
 
 def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
     """ Update function for DBGD.
@@ -24,7 +25,7 @@ def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
         calc_metric = mean_average_precision
     predictor = Predictor()
 
-    for qid, features in x_dict.items():
+    for qid, features in tqdm(x_dict.items()):
         cand_w, u = projection_by_random(weight, dims, delta)
         # make rankings
         current_rank = [gold for (gold, _, _) in predictor.predict_and_ranks(features, y_dict[qid], weight)]
