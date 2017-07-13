@@ -3,7 +3,7 @@ A python implementation of Dueling Bandit Gradient Descent (DBGD).
 
 DBGD is a list-wise online learning approach based on dueling bandits problem using user's implicit feedback.
 
-Note that, this method is commonly used in online setting (i.e. models are trained using user's realtime implicit feedback using some interleaved list), but this implementation is for offline setting (i.e. models are trained using offline training data (not realtime user's feedback)).
+**Note that, DBGD is commonly used in online setting (i.e. models are trained using user's realtime implicit feedback using some interleaved list), but this implementation is for offline setting (i.e. models are trained using offline training data (not realtime user's feedback)). Basically, DBGD should be used in online setting, not offline.**
 
 For details about DBGD, see the following papers:
 ```
