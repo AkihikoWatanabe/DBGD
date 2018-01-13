@@ -2,7 +2,7 @@
 
 from projection import projection_by_random
 from predictor import Predictor
-from rank_metrics import mean_reciprocal_rank, mean_average_precision
+from metrics import mean_reciprocal_rank, mean_average_precision
 from tqdm import tqdm
 
 def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
@@ -17,6 +17,8 @@ def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
         metric(str): metric for optimization (MAP or MRR)
     Returns:
         weight: updated weight
+
+    Note that 
     """
 
     if metric == "MRR":
