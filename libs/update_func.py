@@ -38,7 +38,7 @@ def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
     return weight
 
 def sigmoid(x):
-	return 1.0 / (1.0 + np.exp(-x))
+    return 1.0 / (1.0 + np.exp(-x))
 
 def is_cand_beats_curr(prob):
     if prob > random():
