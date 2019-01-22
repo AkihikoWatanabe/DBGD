@@ -4,6 +4,8 @@ from projection import projection_by_random
 from predictor import Predictor
 from metrics import mean_reciprocal_rank, mean_average_precision
 from tqdm import tqdm
+import numpy as np
+from random import random
 
 def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
     """ Update function for DBGD.
@@ -35,7 +37,15 @@ def dueling_bandits(x_dict, y_dict, weight, dims, delta, ganma, metric):
 
     return weight
 
+def sigmoid(x):
+	return 1.0 / (1.0 + np.exp(-x))
 
+def is_cand_beats_curr(prob):
+    if prob > random():
+        return True
+    else:
+        return False
+    
 def duel_by_offline_data(features, true_labels, cand_w, current_w, calc_metric):
     """ Duel function to compare candidate weight with current weight by offline data.
     Note that, this offline duel might be not standard settings for dueling bandit gradient descent (DBGD).
@@ -52,13 +62,17 @@ def duel_by_offline_data(features, true_labels, cand_w, current_w, calc_metric):
     Returns:
         bool: booling value whether candidate weight wins current weight or not .
     """
-
+    C = 10.0
+    
     # make rankings 
     predictor = Predictor()
     current_rank = [gold for (gold, _, _) in predictor.predict_and_ranks(features, true_labels, current_w)]
     cand_rank = [gold for (gold, _, _) in predictor.predict_and_ranks(features, true_labels, cand_w)]
-    # If you would like to train models using real-time user feedback data,
-    if calc_metric([current_rank]) < calc_metric([cand_rank]):
+ 
+    v_curr = C * calc_metric([current_rank])  # value for current weight
+    v_cand = C * calc_metric([cand_rank])  # value for candidate weight
+    prob_cand_beats_curr = 1.0 - sigmoid(v_curr - v_cand)
+    if is_cand_beats_curr(prob_cand_beats_curr):
         # candidate weight wins current weight
         return True
 
