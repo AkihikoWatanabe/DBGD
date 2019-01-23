@@ -14,7 +14,9 @@ For details about DBGD, see the following papers:
 Interactively optimizing information retrieval systems as a dueling bandits problem, Yue+, ICML'09.
 ```
 
-Weights are updated using Iterative Parameter Mixture, which is commonly used in supervised online-learning approaches based on offline data such as Perceptron, Passive-Aggressive and so on.
+Weights are updated using Iterative Parameter Mixture, which is commonly used in supervised online-learning approaches based on offline data such as Perceptron, Passive-Aggressive and so on.  
+
+But I'm not sure Iterative Parameter Mixture works well in reinforcement learning.
 
 # Requirements
 * python 2.7
